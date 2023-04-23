@@ -73,7 +73,8 @@ class ClassificationResultsAdapter :
         fun bind(label: String?, score: Float?) {
             with(binding) {
                 tvLabel.text = label ?: NO_VALUE
-                tvScore.text = if (score != null) String.format("%.2f", score) else NO_VALUE
+                val percentageScore = score?.times(100.0)
+                tvScore.text = if (score != null) String.format("%.2f%%", percentageScore) else NO_VALUE
             }
         }
     }
